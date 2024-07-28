@@ -1,6 +1,7 @@
 
-title: Nue admin dashboard
-description: Simple template for scalable apps
+title: Nue Editor
+description: Interactively view and edit your Nue project
 globals: [style]
 
 favicon: /img/nue-logo.svg
+port: 8888

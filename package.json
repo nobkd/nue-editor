@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "nue -Ir src",
-    "build": "nue -Ispr src",
+    "build": "nue -Ispr src"
   },
   "devDependencies": {
     "nuekit": "^0.5.3"

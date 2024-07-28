@@ -2,42 +2,33 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3em 5%;
-}
-
-header {
-  background: url(../img/nue-logo.svg) no-repeat 0 50%;
-  background-size: 3rem;
-  padding-left: 4rem;
-  margin-bottom: 2em;
+html, body, main {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 main {
-  font-size: .9rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr;
+  grid-template-rows: 1fr;
 }
 
-h1 {
-  font-size: 1.3em;
-  margin: 0 0 .2em;
-  font-weight: 550;
+section {
+  display: flex;
+  flex-direction: column;
 }
 
-h1 + p {
-  font-size: 90%;
+form {
+  display: flex;
 }
 
-h2 {
-  font-size: .95em;
-  font-weight: 400;
-  margin: 3em 0 1em;
+input {
+  flex: 1;
 }
 
-p {
-  margin: 0 0 1em;
-  color: #999;
+iframe, textarea {
+  height: 100%;
+  width: 100%;
+  resize: none;
 }
-
