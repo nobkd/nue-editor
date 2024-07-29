@@ -10,15 +10,24 @@
     <button @click="openDir">Open project root</button>
   </div>
   <nav>
-    <listing />
+    <listing :tree />
   </nav>
 
   <script>
-    dirList = []
-    openDir() {
-      showDirectoryPicker({ mode: 'readwrite', startIn: 'documents' }).then((r) => {
-        console.log(r)
-      })
+    tree = {
+      name: 'test',
+      dirs: [
+        {
+          name: 'dir',
+          dirs: [{ name: 'subdir' }],
+          files: [{ name: '.gitignore' }]
+        },
+        { name: 'stuff' }
+      ],
+      files: [{ name: 'lol.txt' }]
+    }
+    async openDir() {
+      this.handle = await showDirectoryPicker({ mode: 'readwrite' })
     }
   </script>
 </section>
@@ -45,12 +54,14 @@
 
     constructor({ origin="http://localhost:8080", pth='' }) {
       this.url = new URL(pth, origin).toString()
-      addEventListener('message', ({data}) => urlbar.value = data)
+      addEventListener('message', ({ data }) => urlbar.value = data)
     }
   </script>
 </section>
 
 
-<li @name="listing">
-
-</li>
+<details @name="listing" open>
+  <summary>{tree  .name}</summary>
+  <listing :for="d in tree.dirs" :tree="d" :if="tree.dirs.length" />
+  <a href="#" :for="t in tree.files" :if="tree.files.length">{t.name}</a>
+</details>
