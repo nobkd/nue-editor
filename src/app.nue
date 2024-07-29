@@ -31,20 +31,20 @@
 
 <section @name="viewer">
   <form @submit.prevent="openUrl">
-    <input type="url" id="urlbar" :value="defaultUrl">
+    <input type="url" id="urlbar" :value="url">
     <button>Open</button>
   </form>
-  <iframe :src="defaultUrl" frameborder="0" id="webview"></iframe>
+  <iframe :src="url" frameborder="0" id="webview"></iframe>
 
   <script>
-    defaultUrl = "http://localhost:8080"
     urlbar = document.getElementById('urlbar')
 
     openUrl() {
-      this.defaultUrl = urlbar.value
+      this.url = urlbar.value
     }
 
-    constructor() {
+    constructor({ origin="http://localhost:8080", pth='' }) {
+      this.url = new URL(pth, origin).toString()
       addEventListener('message', ({data}) => urlbar.value = data)
     }
   </script>
