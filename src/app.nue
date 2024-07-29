@@ -30,7 +30,7 @@
 
 
 <section @name="viewer">
-  <form @submit.prevent="setUrl">
+  <form @submit.prevent="openUrl">
     <input type="url" id="urlbar" :value="defaultUrl">
     <button>Open</button>
   </form>
@@ -38,15 +38,14 @@
 
   <script>
     defaultUrl = "http://localhost:8080"
-
     urlbar = document.getElementById('urlbar')
 
-    setUrl() {
+    openUrl() {
       this.defaultUrl = urlbar.value
     }
 
     constructor() {
-      addEventListener('message', (event) => alert('hi'))
+      addEventListener('message', ({data}) => urlbar.value = data)
     }
   </script>
 </section>
