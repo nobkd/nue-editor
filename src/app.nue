@@ -10,7 +10,7 @@
 </main>
 
 
-<section @name="filelist">
+<section @name="filelist" class="filelist">
   <div>
     <button @click="openDir">Open project root</button>
   </div>
@@ -39,13 +39,10 @@
 
 
 <section @name="editor" class="editor">
-  <textarea id="editor" ref="editor" @keydown="checkTab" @keyup="changed" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
-  <pre id="highlighted" ref="highlighted" aria-hidden="true" glow></pre>
+  <textarea ref="editor" @keydown="checkTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
+  <pre ref="highlighted" aria-hidden="true" glow></pre>
 
   <script>
-    // TODO: match scroll position
-
-    lang = 'html'
     spaceStarter = /^(\s*)/
     spaceEnder = /(\s*)$/
 
@@ -55,15 +52,16 @@
       const spaceStart = this.spaceStarter.exec(text)[1] ?? ''
       const spaceEnd = this.spaceEnder.exec(text)[1]
 
-      this.$refs.highlighted.innerHTML = `${spaceStart}${glow(text, { language: this.lang })}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
+      this.$refs.highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
+      this.scroll()
     }
 
-    checkTab(e) {
+    checkTab($event) {
       const editor = this.$refs.editor
-      
+
       // https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
-      if (e.key == 'Tab') {
-        e.preventDefault()
+      if ($event.key == 'Tab') {
+        $event.preventDefault()
 
         let cursorPos = editor.selectionEnd + 1
         editor.value = [
@@ -77,11 +75,16 @@
         this.changed()
       }
     }
+
+    scroll() {
+      this.$refs.highlighted.scrollTop = this.$refs.editor.scrollTop
+      this.$refs.highlighted.scrollLeft = this.$refs.editor.scrollLeft
+    }
   </script>
 </section>
 
 
-<section @name="viewer">
+<section @name="viewer" class="viewer">
   <form @submit.prevent="openUrl">
     <input type="url" ref="urlbar" :value="url">
     <button>Open</button>
@@ -102,7 +105,12 @@
 
 
 <details @name="listing" open>
-  <summary>{tree  .name}</summary>
+  <summary>{tree.name}</summary>
   <listing :for="d in tree.dirs" :tree="d" :if="tree.dirs.length" />
   <a href="#" :for="t in tree.files" :if="tree.files.length">{t.name}</a>
 </details>
+
+
+<div @name="splitter" class="splitter">
+
+</div>

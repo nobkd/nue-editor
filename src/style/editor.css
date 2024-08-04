@@ -1,0 +1,30 @@
+.editor {
+  position: relative;
+  font-family: monospace;
+}
+
+.editor textarea,
+.editor [glow] {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+  border: none;
+  overflow: scroll;
+
+  white-space: pre;
+  tab-size: 2;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.editor textarea {
+  z-index: 0;
+  color: transparent;
+  background-color: transparent;
+  caret-color: gray;
+}
+
+.editor [glow] {
+  z-index: -1;
+}
