@@ -11,5 +11,26 @@
 }
 
 .splitter {
+    position: relative;
+    width: 2px;
+    margin-inline: 2px;
+    background-color: color-mix(in srgb, dimgray, transparent);
+    cursor: col-resize;
 
+    &::before {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: '···';
+        font-weight: bolder;
+        font-size: x-large;
+        height: 3ch;
+        width: 3ch;
+        top: 50%;
+        left: 50%;
+        letter-spacing: -15px;
+        transform: translateX(-50%) rotate(90deg);
+        color: gray;
+    }
 }
