@@ -3,12 +3,10 @@
 export function createHandlers(resizer) {
     const prev = resizer.previousElementSibling
     const next = resizer.nextElementSibling
+    const parent = resizer.parentNode
 
     const elToResize = prev.style.width ? prev : next
     const factor = elToResize === next ? -1 : 1
-    const parent = resizer.parentNode
-
-    console.log(elToResize)
 
     const el = document.createElement('div')
     el.className = 'splitter-overlay'

@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "bun -e \"import{$}from'bun';$`cp node_modules/nue-glow/src/glow.js src/glow.js`;$`cp node_modules/nue-glow/minified/glow.nano.css src/style/glow.nano.css`\"",
     "dev": "nue -Ir src",
-    "build": "nue -Ispr src"
+    "preview": "nue -Ispr src",
+    "build": "nue build -Ispr src"
   },
   "devDependencies": {
     "nuekit": "^0.5.3"
