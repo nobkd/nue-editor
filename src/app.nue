@@ -1,20 +1,24 @@
 <script>
+  import { router } from '/@nue/app-router.js'
   import { glow } from './glow.js'
+  import { createHandlers } from './splitpane.js'
 </script>
 
 
 <main @name="app">
   <filelist style="width: 10%;" />
-  <splitter />
+  <div id="splitter1" />
   <editor />
-  <splitter />
-  <viewer style="width: 30%;"/>
+  <div id="splitter2" />
+  <viewer style="width: 30%;" />
 
   <script>
-
-    get() {
-      this.$refs['filelist']
-      this.$refs['viewer']
+    mounted() {
+      router.on('/', async () => {
+        this.mountChild('splitter', splitter1)
+        this.mountChild('splitter', splitter2)
+      })
+      router.start(this)
     }
   </script>
 </main>
@@ -122,5 +126,12 @@
 
 
 <div @name="splitter" class="splitter">
-···
+  ···
+
+  <script>
+    mounted() {
+      this.handlers = createHandlers(this.$el)
+      this.$el.onmousedown = this.handlers.mouseDownHandler
+    }
+  </script>
 </div>

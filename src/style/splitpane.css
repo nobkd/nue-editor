@@ -5,16 +5,27 @@
 .splitter {
   width: 3px;
   margin-inline: 2px;
+  font-weight: bolder;
+  font-size: larger;
   background-color: color-mix(in srgb, dimgray, transparent);
   color: gray;
 
   display: flex;
   align-items: center;
-
   justify-content: center;
   writing-mode: vertical-rl;
 
-  font-weight: bolder;
-  font-size: larger;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.splitter-overlay {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: clip;
+  z-index: 10;
+
   cursor: col-resize;
+  background-color: rgba(0, 0, 0, 0.125);
 }

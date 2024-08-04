@@ -29,4 +29,5 @@
 .editor [glow] {
   z-index: 0;
   overflow: hidden;
+  user-select: none;
 }

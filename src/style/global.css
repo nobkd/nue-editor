@@ -18,6 +18,10 @@ main {
   width: 100%;
 }
 
+body {
+  position: relative;
+}
+
 main {
   display: flex;
 }
@@ -26,6 +30,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  margin: 0.125rem;
 }
 
 form {
