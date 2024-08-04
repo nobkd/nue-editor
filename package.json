@@ -2,7 +2,7 @@
   "name": "nue-editor",
   "type": "module",
   "scripts": {
-    "postinstall": "bun -e \"import{$}from'bun';$`cp node_modules/nue-glow/src/glow.js src/glow.js`;$`cp node_modules/nue-glow/minified/glow.nano.css src/style/glow.nano.css`\"",
+    "postinstall": "bun prepare.js",
     "dev": "nue -Ir src",
     "preview": "nue -Ispr src",
     "build": "nue build -Ispr src"
