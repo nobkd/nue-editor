@@ -39,19 +39,23 @@
 
 
 <section @name="editor" class="editor">
-  <textarea id="editor" ref="editor" @keydown="checkTab" @keyup="changed"></textarea>       
+  <textarea id="editor" ref="editor" @keydown="checkTab" @keyup="changed" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
   <pre id="highlighted" ref="highlighted" aria-hidden="true" glow></pre>
 
   <script>
     // TODO: match scroll position
 
     lang = 'html'
+    spaceStarter = /^(\s*)/
+    spaceEnder = /(\s*)$/
 
     changed() {
       const text = this.$refs.editor.value
-      const whitespace = /\s*$/g.exec(text)[1]
 
-      this.$refs.highlighted.innerHTML = glow(text, { language: this.lang }) + (whitespace ? whitespace + ' ' : '')
+      const spaceStart = this.spaceStarter.exec(text)[1] ?? ''
+      const spaceEnd = this.spaceEnder.exec(text)[1]
+
+      this.$refs.highlighted.innerHTML = `${spaceStart}${glow(text, { language: this.lang })}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
     }
 
     checkTab(e) {

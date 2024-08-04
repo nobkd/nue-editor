@@ -2,6 +2,6 @@
 title: Nue Editor
 description: Interactively view and edit your Nue project
 globals: [style]
-
+bundle: [glow.js]
 favicon: /img/nue-logo.svg
 port: 8888
