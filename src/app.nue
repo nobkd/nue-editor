@@ -95,7 +95,7 @@
 
     constructor({ origin="http://localhost:8080", pth='' }) {
       this.url = new URL(pth, origin).toString()
-      addEventListener('message', ({ data }) => this.url = data)
+      addEventListener('message', ({ data }) => this.$refs.urlbar.value = data)
     }
   </script>
 </section>
