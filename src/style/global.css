@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: dark light;
+}
+
 html, body, main {
   margin: 0;
   padding: 0;
@@ -27,8 +31,40 @@ input {
   flex: 1;
 }
 
-iframe, textarea {
+iframe, textarea, pre {
   height: 100%;
   width: 100%;
   resize: none;
+}
+
+.editor {
+  position: relative;
+  > * {
+    font-family: monospace;
+  }
+}
+
+#editor, #highlighted {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+  border: none;
+  overflow: scroll;
+
+  white-space: pre;
+  tab-size: 2;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#editor {
+  z-index: 0;
+  color: transparent;
+  background-color: transparent;
+  caret-color: gray;
+}
+
+#highlighted {
+  z-index: -1;
 }

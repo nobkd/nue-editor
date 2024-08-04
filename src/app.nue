@@ -1,3 +1,8 @@
+<script>
+  import { glow } from './glow.js'
+</script>
+
+
 <main @name="app">
   <filelist />
   <editor />
@@ -33,28 +38,60 @@
 </section>
 
 
-<section @name="editor">
-  <textarea></textarea>
+<section @name="editor" class="editor">
+  <textarea id="editor" ref="editor" @keydown="checkTab" @keyup="changed"></textarea>       
+  <pre id="highlighted" ref="highlighted" aria-hidden="true" glow></pre>
+
+  <script>
+    // TODO: match scroll position
+
+    lang = 'html'
+
+    changed() {
+      const text = this.$refs.editor.value
+      const whitespace = /\s*$/g.exec(text)[1]
+
+      this.$refs.highlighted.innerHTML = glow(text, { language: this.lang }) + (whitespace ? whitespace + ' ' : '')
+    }
+
+    checkTab(e) {
+      const editor = this.$refs.editor
+      
+      // https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
+      if (e.key == 'Tab') {
+        e.preventDefault()
+
+        let cursorPos = editor.selectionEnd + 1
+        editor.value = [
+          editor.value.slice(0, editor.selectionStart),
+          editor.value.slice(editor.selectionEnd, editor.value.length)
+        ].join('\t')
+
+        // move cursor
+        editor.selectionStart = cursorPos
+        editor.selectionEnd = cursorPos
+        this.changed()
+      }
+    }
+  </script>
 </section>
 
 
 <section @name="viewer">
   <form @submit.prevent="openUrl">
-    <input type="url" id="urlbar" :value="url">
+    <input type="url" ref="urlbar" :value="url">
     <button>Open</button>
   </form>
-  <iframe :src="url" frameborder="0" id="webview"></iframe>
+  <iframe :src="url" frameborder="0" ref="webview"></iframe>
 
   <script>
-    urlbar = document.getElementById('urlbar')
-
     openUrl() {
-      this.url = urlbar.value
+      this.url = this.$refs.urlbar.value
     }
 
     constructor({ origin="http://localhost:8080", pth='' }) {
       this.url = new URL(pth, origin).toString()
-      addEventListener('message', ({ data }) => urlbar.value = data)
+      addEventListener('message', ({ data }) => this.url = data)
     }
   </script>
 </section>
