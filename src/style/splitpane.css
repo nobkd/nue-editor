@@ -1,0 +1,15 @@
+.editor {
+  flex: 1 1 0%;
+}
+
+.filelist {
+    width: 10%;
+}
+
+.viewer {
+    width: 30%;
+}
+
+.splitter {
+
+}

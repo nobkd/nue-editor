@@ -5,8 +5,18 @@
 
 <main @name="app">
   <filelist />
+  <splitter />
   <editor />
+  <splitter />
   <viewer />
+
+  <script>
+    get() {
+      this.$refs['filelist']
+      this.$refs['editor']
+      this.$refs['viewer']
+    }
+  </script>
 </main>
 
 

@@ -1,6 +1,7 @@
 .editor {
   position: relative;
   font-family: monospace;
+  background-color: rgb(0 0 0 / 0.5);
 }
 
 .editor textarea,
@@ -10,7 +11,6 @@
   position: absolute;
   inset: 0;
   border: none;
-  overflow: scroll;
 
   white-space: pre;
   tab-size: 2;
@@ -19,12 +19,14 @@
 }
 
 .editor textarea {
-  z-index: 0;
+  z-index: 1;
+  overflow: auto;
   color: transparent;
   background-color: transparent;
   caret-color: gray;
 }
 
 .editor [glow] {
-  z-index: -1;
+  z-index: 0;
+  overflow: hidden;
 }

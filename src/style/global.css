@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  outline: none;
 }
 
 :root {
@@ -24,12 +25,13 @@ main {
 section {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 0.25rem;
 }
 
 form {
   display: flex;
-  gap: 0.25rem;
+  gap: inherit;
+  padding-inline: 0.125rem;
 }
 
 input {
