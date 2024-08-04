@@ -4,16 +4,16 @@
 
 
 <main @name="app">
-  <filelist />
+  <filelist style="width: 10%;" />
   <splitter />
   <editor />
   <splitter />
-  <viewer />
+  <viewer style="width: 30%;"/>
 
   <script>
+
     get() {
       this.$refs['filelist']
-      this.$refs['editor']
       this.$refs['viewer']
     }
   </script>
@@ -122,5 +122,5 @@
 
 
 <div @name="splitter" class="splitter">
-
+···
 </div>
