@@ -12,6 +12,7 @@
   inset: 0;
   border: none;
 
+  overflow: auto;
   white-space: pre;
   tab-size: 2;
   font-size: 15px;
@@ -20,7 +21,6 @@
 
 .editor textarea {
   z-index: 1;
-  overflow: auto;
   color: transparent;
   background-color: transparent;
   caret-color: gray;
@@ -28,6 +28,5 @@
 
 .editor [glow] {
   z-index: 0;
-  overflow: hidden;
   user-select: none;
 }
