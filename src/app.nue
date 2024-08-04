@@ -53,26 +53,24 @@
 
 
 <section @name="editor" class="editor">
-  <textarea ref="editor" @keydown="checkTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
-  <pre ref="highlighted" aria-hidden="true" glow></pre>
+  <textarea id="editor" @keydown="checkTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
+  <pre id="highlighted" aria-hidden="true" glow></pre>
 
   <script>
     spaceStarter = /^(\s*)/
     spaceEnder = /(\s*)$/
 
     changed() {
-      const text = this.$refs.editor.value
+      const text = editor.value
 
       const spaceStart = this.spaceStarter.exec(text)[1] ?? ''
       const spaceEnd = this.spaceEnder.exec(text)[1]
 
-      this.$refs.highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
+      highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
       this.scroll()
     }
 
     checkTab($event) {
-      const editor = this.$refs.editor
-
       // https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
       if ($event.key == 'Tab') {
         $event.preventDefault()
@@ -91,8 +89,8 @@
     }
 
     scroll() {
-      this.$refs.highlighted.scrollTop = this.$refs.editor.scrollTop
-      this.$refs.highlighted.scrollLeft = this.$refs.editor.scrollLeft
+      highlighted.scrollTop = editor.scrollTop
+      highlighted.scrollLeft = editor.scrollLeft
     }
   </script>
 </section>
@@ -100,19 +98,19 @@
 
 <section @name="viewer" class="viewer">
   <form @submit.prevent="openUrl">
-    <input type="url" ref="urlbar" :value="url">
+    <input type="url" id="urlbar" :value="url">
     <button>Open</button>
   </form>
   <iframe :src="url" frameborder="0" ref="webview"></iframe>
 
   <script>
     openUrl() {
-      this.url = this.$refs.urlbar.value
+      this.url = urlbar.value
     }
 
     constructor({ origin="http://localhost:8080", pth='' }) {
       this.url = new URL(pth, origin).toString()
-      addEventListener('message', ({ data }) => this.$refs.urlbar.value = data)
+      addEventListener('message', ({ data }) => urlbar.value = data)
     }
   </script>
 </section>
