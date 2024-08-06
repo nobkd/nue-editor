@@ -19,7 +19,9 @@
       const spaceStart = this.spaceStarter.exec(text)[1] ?? ''
       const spaceEnd = this.spaceEnder.exec(text)[1]
 
-      // TODO: register language; how to do line number styles for textarea?
+      // TODO: register language
+      // TODO: how to do line number styles for textarea?
+      // TODO: disable special markup changes (e.g. line starts with >, +. -) (patch)
       highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
       this.scroll()
     }
