@@ -1,5 +1,4 @@
 <script>
-  import { router } from '/@nue/app-router.js'
   import { glow } from './glow.js'
   import { createHandlers } from './splitpane.js'
 </script>
@@ -14,11 +13,8 @@
 
   <script>
     mounted() {
-      router.on('/', async () => {
-        this.mountChild('splitter', splitter1)
-        this.mountChild('splitter', splitter2)
-      })
-      router.start(this)
+      this.mountChild('splitter', splitter1)
+      this.mountChild('splitter', splitter2)
     }
   </script>
 </main>
