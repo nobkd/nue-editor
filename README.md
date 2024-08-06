@@ -18,5 +18,5 @@ function send() {
 
 addEventListener('load', send)
 addEventListener('route', send)
-// addEventListener('popstate', send) // TODO: check if needed
+addEventListener('popstate', send)
 ```
