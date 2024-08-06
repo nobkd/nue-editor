@@ -19,7 +19,6 @@ export function createHandlers(resizer) {
 
         x = $event.clientX
         width = elToResize.getBoundingClientRect().width
-        console.log(width)
 
         document.addEventListener('mousemove', mouseMoveHandler)
         document.addEventListener('mouseup', mouseUpHandler)
