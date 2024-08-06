@@ -2,37 +2,37 @@
   font-family: monospace;
   background-color: rgb(0 0 0 / 0.5);
   padding: 0.5rem 0.35rem;
-}
 
-.editor div {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
+  div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
 
-.editor textarea,
-.editor [glow] {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  inset: 0;
-  border: none;
+  textarea,
+  [glow] {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    inset: 0;
+    border: none;
 
-  overflow: auto;
-  white-space: pre;
-  tab-size: 2;
-  font-size: 15px;
-  line-height: 1.5;
-}
+    overflow: auto;
+    white-space: pre;
+    tab-size: 2;
+    font-size: 15px;
+    line-height: 1.5;
+  }
 
-.editor textarea {
-  z-index: 1;
-  color: transparent;
-  background-color: transparent;
-  caret-color: gray;
-}
+  textarea {
+    z-index: 1;
+    color: transparent;
+    background-color: transparent;
+    caret-color: gray;
+  }
 
-.editor [glow] {
-  z-index: 0;
-  user-select: none;
+  [glow] {
+    z-index: 0;
+    user-select: none;
+  }
 }

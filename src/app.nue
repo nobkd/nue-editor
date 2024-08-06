@@ -6,7 +6,7 @@
 <main @name="app">
   <filelist style="width: 10%;" />
   <div id="splitter1" />
-  <editor />
+  <editor style="flex: 1 1 0%;" />
   <div id="splitter2" />
   <viewer style="width: 30%;" />
 
