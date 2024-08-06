@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "nuekit": "^0.5.3"
+  },
+  "patchedDependencies": {
+    "nuejs-core@0.4.0": "patches/nuejs-core@0.4.0.patch"
   }
 }

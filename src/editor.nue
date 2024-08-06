@@ -5,7 +5,7 @@
 
 <section @name="editor" class="editor">
   <div>
-    <textarea id="editor" @keydown="checkTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
+    <textarea id="editor" @keydown.tab.prevent="onTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
     <pre id="highlighted" aria-hidden="true" glow></pre>
   </div>
 
@@ -19,27 +19,23 @@
       const spaceStart = this.spaceStarter.exec(text)[1] ?? ''
       const spaceEnd = this.spaceEnder.exec(text)[1]
 
-      // TODO: register language
+      // TODO: register language; how to do line number styles for textarea?
       highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
       this.scroll()
     }
 
-    checkTab($event) {
+    onTab($event) {
       // https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
-      if ($event.key == 'Tab') {
-        $event.preventDefault()
+      let cursorPos = editor.selectionEnd + 1
+      editor.value = [
+        editor.value.slice(0, editor.selectionStart),
+        editor.value.slice(editor.selectionEnd, editor.value.length)
+      ].join('\t')
 
-        let cursorPos = editor.selectionEnd + 1
-        editor.value = [
-          editor.value.slice(0, editor.selectionStart),
-          editor.value.slice(editor.selectionEnd, editor.value.length)
-        ].join('\t')
-
-        // move cursor
-        editor.selectionStart = cursorPos
-        editor.selectionEnd = cursorPos
-        this.changed()
-      }
+      // move cursor
+      editor.selectionStart = cursorPos
+      editor.selectionEnd = cursorPos
+      this.changed()
     }
 
     scroll() {
