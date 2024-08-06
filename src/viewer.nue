@@ -1,0 +1,19 @@
+
+<section @name="viewer" class="viewer">
+  <form @submit.prevent="openUrl">
+    <input type="url" id="urlbar" :value="url">
+    <button>Open</button>
+  </form>
+  <iframe :src="url" frameborder="0" ref="webview"></iframe>
+
+  <script>
+    openUrl() {
+      this.url = urlbar.value
+    }
+
+    constructor({ origin="http://localhost:8080", pth='' }) {
+      this.url = new URL(pth, origin).toString()
+      addEventListener('message', ({ data }) => urlbar.value = data)
+    }
+  </script>
+</section>

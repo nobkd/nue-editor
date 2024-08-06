@@ -1,0 +1,33 @@
+
+<section @name="filelist" class="filelist">
+  <div>
+    <button @click="openDir">Open project root</button>
+  </div>
+  <nav>
+    <listing :tree />
+  </nav>
+
+  <script>
+    tree = {
+      name: 'test',
+      dirs: [
+        {
+          name: 'dir',
+          dirs: [{ name: 'subdir' }],
+          files: [{ name: '.gitignore' }]
+        },
+        { name: 'stuff' }
+      ],
+      files: [{ name: 'lol.txt' }]
+    }
+    async openDir() {
+      this.handle = await showDirectoryPicker({ mode: 'readwrite' })
+    }
+  </script>
+</section>
+
+<details @name="listing" open>
+  <summary>{tree.name}</summary>
+  <listing :for="d in tree.dirs" :tree="d" :if="tree.dirs.length" />
+  <a href="#" :for="t in tree.files" :if="tree.files.length">{t.name}</a>
+</details>
