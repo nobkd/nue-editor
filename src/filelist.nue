@@ -8,18 +8,8 @@
   </nav>
 
   <script>
-    tree = {
-      name: 'test',
-      dirs: [
-        {
-          name: 'dir',
-          dirs: [{ name: 'subdir' }],
-          files: [{ name: '.gitignore' }]
-        },
-        { name: 'stuff' }
-      ],
-      files: [{ name: 'lol.txt' }]
-    }
+    tree = {}
+
     async openDir() {
       this.handle = await showDirectoryPicker({ mode: 'readwrite' })
     }
@@ -28,6 +18,6 @@
 
 <details @name="listing" open>
   <summary>{tree.name}</summary>
-  <listing :for="d in tree.dirs" :tree="d" :if="tree.dirs.length" />
-  <a href="#" :for="t in tree.files" :if="tree.files.length">{t.name}</a>
+  <listing :for="d in tree.dirs" :tree="d" :if="tree?.dirs?.length" />
+  <a href="#" :for="t in tree.files" :if="tree?.files?.length">{t.name}</a>
 </details>
