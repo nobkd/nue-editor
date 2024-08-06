@@ -27,7 +27,6 @@
     }
 
     onTab($event) {
-      // https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
       let cursorPos = editor.selectionEnd + 1
       editor.value = [
         editor.value.slice(0, editor.selectionStart),

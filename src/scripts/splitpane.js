@@ -1,5 +1,3 @@
-// https://phuoc.ng/collection/html-dom/create-resizable-split-views/
-
 export function createHandlers(resizer) {
     const prev = resizer.previousElementSibling
     const next = resizer.nextElementSibling

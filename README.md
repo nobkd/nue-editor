@@ -20,3 +20,8 @@ addEventListener('load', send)
 addEventListener('route', send)
 addEventListener('popstate', send)
 ```
+
+## Relevant sources
+
+- https://phuoc.ng/collection/html-dom/create-resizable-split-views/
+- https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/
