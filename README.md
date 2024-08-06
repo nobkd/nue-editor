@@ -1,6 +1,10 @@
 # Nue Editor
 
-Interactively view and edit your Nue project
+Interactively view and edit your [Nue](https://nuejs.org) project.
+
+> [!Warning]
+> This project is in its early stages of development.  
+> It is likely to changes or get abandoned, if I don't feel like it anymore :man_shrugging:
 
 ## Preparation
 
@@ -14,5 +18,5 @@ function send() {
 
 addEventListener('load', send)
 addEventListener('route', send)
-// addEventListener('popstate', send)
+// addEventListener('popstate', send) // TODO: check if needed
 ```
