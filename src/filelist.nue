@@ -4,7 +4,7 @@
   </div>
   <nav>
     <listing :tree :if="Object.keys(tree).length" />
-    <div class="center" :else>Currently WIP</div>
+    <div class="wip" :else>Currently WIP</div>
   </nav>
 
   <script>

@@ -1,0 +1,12 @@
+:root {
+  color-scheme: dark light;
+  font-family: sans-serif;
+
+  --bg: #eee;
+  --caret: #000;
+
+  @media (prefers-color-scheme: dark) {
+    --bg: #000;
+    --caret: grey;
+  }
+}

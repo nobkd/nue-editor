@@ -3,8 +3,8 @@
   margin-inline: 2px;
   font-weight: bolder;
   font-size: larger;
-  background-color: color-mix(in srgb, dimgray, transparent);
-  color: gray;
+  background-color: color-mix(in srgb, var(--caret), transparent 75%);
+  color: var(--caret);
 
   display: flex;
   align-items: center;
@@ -23,5 +23,5 @@
   z-index: 10;
 
   cursor: ew-resize;
-  background-color: rgba(0, 0, 0, 0.125);
+  background-color: #0002;
 }

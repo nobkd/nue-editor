@@ -13,7 +13,7 @@ export function createHandlers(resizer) {
     let width = 0
 
     function mouseDownHandler($event) {
-        parent.insertAdjacentElement('afterbegin', el)
+        parent.appendChild(el)
 
         x = $event.clientX
         width = elToResize.getBoundingClientRect().width
