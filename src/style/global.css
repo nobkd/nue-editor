@@ -33,16 +33,6 @@ section {
   margin: 0.125rem;
 }
 
-form {
-  display: flex;
-  gap: inherit;
-  padding-inline: 0.125rem;
-}
-
-input {
-  flex: 1;
-}
-
 iframe,
 textarea,
 pre {

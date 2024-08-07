@@ -1,9 +1,5 @@
-
 <section @name="viewer" class="viewer">
-  <form @submit.prevent="openUrl">
-    <input type="url" id="urlbar" :value="url">
-    <button>Open</button>
-  </form>
+  <input :value="url" @submit.prevent="openUrl" type="url" id="urlbar">
   <iframe :src="url" frameborder="0" ref="webview"></iframe>
 
   <script>
