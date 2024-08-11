@@ -7,7 +7,7 @@
     "preview": "nue -Ispr src",
     "build": "nue build -Ispr src -e prod.yaml"
   },
-  "devDependencies": {
+  "dependencies": {
     "nuekit": "^0.5.3"
   },
   "patchedDependencies": {
