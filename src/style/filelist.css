@@ -3,7 +3,12 @@ nav {
   height: 100%;
 }
 
-.buttons button,
+.buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.buttons > *,
 .wip {
   display: flex;
   align-items: center;
@@ -12,11 +17,12 @@ nav {
   color: color-mix(in srgb, currentColor, transparent var(--transparency));
 }
 
-.buttons button {
+.buttons > * {
   --transparency: 25%;
   width: 1em;
   height: 1em;
   font-size: 175%;
+  padding: 0.125em;
 }
 
 .wip {
