@@ -3,7 +3,7 @@
 </script>
 
 
-<main @name="app">
+<div @name="app" class="app">
   <filelist style="width: 10%;" />
   <div id="splitter1" />
   <editor style="flex: 1 1 0%;" />
@@ -16,7 +16,7 @@
       this.mountChild('splitter', splitter2)
     }
   </script>
-</main>
+</div>
 
 
 <div @name="splitter" class="splitter">
