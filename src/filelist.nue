@@ -1,7 +1,8 @@
-<section @name="filelist" class="filelist">
+<section @name="filelist" class="section filelist">
   <div class="buttons">
     <a href="//github.com/nobkd/nue-editor" title="View GitHub project"><i-github /></a>
-    <button @click="openDir" title="Open project root"><i-directory /></button>
+    <div class="spacer"></div>
+    <a href="#" @click.prevent="openDir" title="Open project root"><i-directory /></a>
   </div>
   <nav>
     <listing :tree :if="Object.keys(tree).length" />

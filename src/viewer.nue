@@ -1,4 +1,4 @@
-<section @name="viewer" class="viewer">
+<section @name="viewer" class="section viewer">
   <input :value="url" @submit.prevent="openUrl" type="url" id="urlbar">
   <iframe :src="url" frameborder="0" ref="webview"></iframe>
 

@@ -2,7 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  outline: none;
 }
 
 html,
@@ -23,16 +22,17 @@ body {
 
 main,
 article,
-article > section,
+.section,
 .app {
   display: flex;
 }
 
-section > section {
+.section {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   margin: 0.125rem;
+  overflow: hidden;
 }
 
 input {

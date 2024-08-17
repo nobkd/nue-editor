@@ -3,7 +3,7 @@
 </script>
 
 
-<section @name="editor" class="editor">
+<section @name="editor" class="section editor">
   <div>
     <textarea id="editor" @keydown.tab.prevent="onTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
     <pre id="highlighted" aria-hidden="true"></pre>

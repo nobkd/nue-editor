@@ -2,6 +2,11 @@
   font-family: monospace;
   background-color: color-mix(in srgb, var(--bg), transparent);
   padding: 0.5rem 0.35rem;
+  border-radius: 0.25em;
+
+  &:has(:focus) {
+    outline: 1px color-mix(in srgb, var(--caret), transparent) dashed;
+  }
 
   div {
     position: relative;
@@ -29,10 +34,16 @@
     z-index: 1;
     color: transparent;
     caret-color: var(--caret);
+    outline: none;
   }
 
   pre {
     z-index: 0;
     user-select: none;
+    scrollbar-width: none;
+
+    @media (prefers-color-scheme: light) {
+      filter: invert(1) hue-rotate(180deg) contrast(150%) saturate(150%) brightness(90%);
+    }
   }
 }
