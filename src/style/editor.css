@@ -10,7 +10,7 @@
   }
 
   textarea,
-  [glow] {
+  pre {
     margin: 0;
     padding: 0;
     position: absolute;
@@ -22,16 +22,16 @@
     tab-size: 2;
     font-size: 15px;
     line-height: 1.5;
+    background-color: transparent;
   }
 
   textarea {
     z-index: 1;
     color: transparent;
-    background-color: transparent;
     caret-color: var(--caret);
   }
 
-  [glow] {
+  pre {
     z-index: 0;
     user-select: none;
   }

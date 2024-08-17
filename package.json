@@ -8,9 +8,6 @@
     "build": "nue build -Ispr src -e prod.yaml"
   },
   "dependencies": {
-    "nuekit": "^0.5.3"
-  },
-  "patchedDependencies": {
-    "nuejs-core@0.4.0": "patches/nuejs-core@0.4.0.patch"
+    "nuekit": "^1.0.0-beta.1"
   }
 }
