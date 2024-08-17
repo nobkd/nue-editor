@@ -6,7 +6,7 @@
 <section @name="editor" class="editor">
   <div>
     <textarea id="editor" @keydown.tab.prevent="onTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
-    <pre id="highlighted" aria-hidden="true" glow></pre>
+    <pre id="highlighted" aria-hidden="true"></pre>
   </div>
 
   <script>
