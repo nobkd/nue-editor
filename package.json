@@ -2,12 +2,11 @@
   "name": "nue-editor",
   "type": "module",
   "scripts": {
-    "postinstall": "bun prepare.js",
-    "dev": "nue -Ir src",
-    "preview": "nue -Ispr src",
-    "build": "nue build -Ispr src -e prod.yaml"
+    "dev": "nue -r src",
+    "preview": "nue -pr src",
+    "build": "nue build -pr src -e prod.yaml"
   },
   "dependencies": {
-    "nuekit": "^1.0.0-beta.1"
+    "nuekit": "^1.0.0-beta.2"
   }
 }

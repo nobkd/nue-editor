@@ -1,9 +1,10 @@
 <script>
-  import { glow } from './scripts/glow.js'
+  import { glow } from '../scripts/glow.js'
 </script>
 
 
 <section @name="editor" class="section editor">
+  <link rel="stylesheet" href="@nue/syntax.css">
   <div>
     <textarea id="editor" @keydown.tab.prevent="onTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>
     <pre id="highlighted" aria-hidden="true"></pre>

@@ -1,5 +1,5 @@
 <script>
-  import { createHandlers } from './scripts/splitpane.js'
+  import { createHandlers } from '../scripts/splitpane.js'
 </script>
 
 
