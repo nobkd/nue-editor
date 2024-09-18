@@ -1,11 +1,11 @@
 <section @name="viewer" class="section viewer">
-  <input :value="url" @submit.prevent="openUrl" type="url" id="urlbar">
+  <form @submit.prevent="openUrl">
+    <input :value="url" type="url" id="urlbar">
+  </form>
   <iframe :src="url" frameborder="0" ref="webview"></iframe>
 
   <script>
-    openUrl() {
-      this.url = urlbar.value
-    }
+    openUrl() { this.url = urlbar.value }
 
     constructor({ origin="http://localhost:8080", pth='' }) {
       this.url = new URL(pth, origin).toString()
