@@ -3,7 +3,7 @@
 </script>
 
 
-<section @name="editor" class="section editor">
+<section @name="editor" class="editor">
   <link rel="stylesheet" href="@nue/syntax.css">
   <div>
     <textarea id="editor" @keydown.tab.prevent="onTab" @keyup="changed" @scroll="scroll" spellcheck="false"></textarea>

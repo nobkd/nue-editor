@@ -1,4 +1,4 @@
-<section @name="filelist" class="section filelist">
+<section @name="filelist" class="filelist">
   <div class="buttons">
     <a href="//github.com/nobkd/nue-editor" title="View GitHub project"><i-github /></a>
     <div class="spacer"></div>

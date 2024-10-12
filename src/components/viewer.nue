@@ -1,4 +1,4 @@
-<section @name="viewer" class="section viewer">
+<section @name="viewer" class="viewer">
   <form @submit.prevent="openUrl">
     <input :value="url" type="url" id="urlbar">
   </form>
