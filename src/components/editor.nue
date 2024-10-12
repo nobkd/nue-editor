@@ -22,8 +22,8 @@
 
       // TODO: register language
       // TODO: how to do line number styles for textarea?
-      // TODO: disable special markup changes (e.g. line starts with >, +. -) (patch)
-      highlighted.innerHTML = `${spaceStart}${glow(text, {})}${spaceEnd ? spaceEnd + '<wbr />' : ''}`
+      const html = glow(text, { language: undefined, mark: false, prefix: false })
+      highlighted.innerHTML = spaceStart + html + (spaceEnd ? spaceEnd + '<wbr />' : '')
       this.scroll()
     }
 
