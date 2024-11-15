@@ -1,7 +1,7 @@
 
 title: Nue Editor
 description: Interactively view and edit your Nue project
-favicon: /img/nue-logo.svg
+favicon: /img/logo.png
 port: 8888
 inline_css: true
 globals: [style, components]

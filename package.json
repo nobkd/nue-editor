@@ -7,9 +7,6 @@
     "build": "nue build -pr src -e prod.yaml"
   },
   "dependencies": {
-    "nuekit": "^1.0.0-beta.2"
-  },
-  "patchedDependencies": {
-    "nue-glow@0.2.1": "patches/nue-glow@0.2.1.patch"
+    "nuekit": "^1.0.0-RC.1"
   }
 }
