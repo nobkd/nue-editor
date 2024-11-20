@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [$default-branch]
     paths: ["src/**"]
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -24,18 +24,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
+
       - name: Install
         run: bun install --frozen-lockfile
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build
         run: bun run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'src/.dist/prod'
+          path: "src/.dist/prod"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
