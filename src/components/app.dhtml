@@ -20,8 +20,6 @@
 
 
 <div @name="splitter" class="splitter">
-  ···
-
   <script>
     mounted() {
       this.handlers = createHandlers(this.$el)

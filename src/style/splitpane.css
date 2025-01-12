@@ -1,8 +1,6 @@
 .splitter {
-  width: 4px;
+  width: 5px;
   margin: 0.125em;
-  border-radius: 0.25em;
-  font-weight: bolder;
   font-size: xx-large;
   background-color: color-mix(in srgb, var(--caret), transparent 75%);
   color: var(--caret);
@@ -10,11 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  writing-mode: vertical-rl;
-  text-align: center;
-
   cursor: ew-resize;
-  user-select: none;
+
+  &::before {
+    content: "⡇";
+    font-family: sans-serif;
+    margin-left: 0.5ch;
+  }
 }
 
 .splitter-overlay {
