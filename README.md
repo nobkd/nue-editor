@@ -2,6 +2,11 @@
 
 Interactively view and edit your [Nue](https://nuejs.org) project.
 
+> [!Note]
+> Currently not feeling like working more on this.
+> So I'm archiving this for a while.
+
+
 > [!Warning]
 > This project is in its early stages of development.  
 > It is likely to changes or get abandoned, if I don't feel like it anymore :man_shrugging:
