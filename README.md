@@ -4,7 +4,7 @@ Interactively view and edit your [Nue](https://nuejs.org) project.
 
 > [!Note]
 > Currently not feeling like working more on this.
-> So I'm archiving this for a while.
+> So... expect no changes for a while.
 
 
 > [!Warning]
